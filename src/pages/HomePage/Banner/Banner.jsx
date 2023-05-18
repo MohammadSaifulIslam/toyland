@@ -41,7 +41,7 @@ const Banner = () => {
                         <div className='absolute h-full w-full top-0 right-0 bg-black bg-opacity-50 text-white flex justify-center items-center text-center'>
                             <div className='md:w-2/3'>
                                 <h2 className='text-5xl font-bold mb-5'>
-                                    Ignite Their Imagination
+                                    Ignite Kid's Imagination
                                 </h2>
                                 <p className='text-lg font-medium mb-10'>
                                     Unleash a world of wonder and imagination with our captivating collection of toys. From magical dolls to thrilling playsets, our Toyland sparks creativity and transports kids to a realm of endless possibilities.
