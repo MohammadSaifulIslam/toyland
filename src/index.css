@@ -22,3 +22,7 @@ button {
 .my-btn {
   @apply uppercase text-white font-semibold  bg-[#12aee0] rounded-3xl px-7 py-3 cursor-pointer duration-300 hover:bg-[#0aa0d1];
 }
+
+.tab-outline {
+  @apply uppercase font-semibold  cursor-pointer duration-500 text-center w-full h-14 md:h-20 flex items-center justify-center hover:bg-[#0aa0d1] hover:text-white;
+}
