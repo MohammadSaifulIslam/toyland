@@ -10,7 +10,7 @@ const ShopByCategory = () => {
     console.log(currentTab)
 
     useEffect(() => {
-        fetch(`https://toyland-server.vercel.app/toys-by-subCategory/${currentTab}`)
+        fetch(`http://localhost:5000/toys-by-subCategory/${currentTab}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [currentTab])
