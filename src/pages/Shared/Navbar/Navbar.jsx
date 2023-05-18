@@ -34,22 +34,22 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/all-toy' className={({isActive})=> isActive && 'text-[#12aee0]'}>
+                        <NavLink to='/all-toy' className={({isActive})=> isActive ? 'text-[#12aee0]': ''}>
                             All Toys
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/my-toy' className={({isActive})=> isActive && 'text-[#12aee0]'}>
+                        <NavLink to='/my-toy' className={({isActive})=> isActive ? 'text-[#12aee0]': ''}>
                             My Toys
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/add-toy' className={({isActive})=> isActive && 'text-[#12aee0]'}>
+                        <NavLink to='/add-toy' className={({isActive})=> isActive ? 'text-[#12aee0]': ''}>
                             Add A Toy
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/blog' className={({isActive})=> isActive && 'text-[#12aee0]'}>
+                        <NavLink to='/blog' className={({isActive})=> isActive ? 'text-[#12aee0]': ''}>
                             Blogs
                         </NavLink>
                     </li>
