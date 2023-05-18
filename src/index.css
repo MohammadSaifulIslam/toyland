@@ -20,5 +20,5 @@ button {
   @apply max-w-7xl mx-auto px-5;
 }
 .my-btn {
-  @apply uppercase text-white font-semibold  bg-[#12aee0] rounded-3xl px-7 py-3 cursor-pointer;
+  @apply uppercase text-white font-semibold  bg-[#12aee0] rounded-3xl px-7 py-3 cursor-pointer duration-300 hover:bg-[#0aa0d1];
 }
