@@ -26,3 +26,7 @@ button {
 .tab-outline {
   @apply uppercase font-semibold  cursor-pointer duration-500 text-center w-full h-14 md:h-20 flex items-center justify-center hover:bg-[#0aa0d1] hover:text-white;
 }
+
+.my-input {
+  @apply px-5 py-2 w-full rounded-3xl border focus:outline-[#12aee0];
+}

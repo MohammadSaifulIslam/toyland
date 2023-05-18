@@ -29,7 +29,7 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex gap-5 font-semibold">
                     <li>
-                        <NavLink to='/' className={({isActive})=> isActive && 'text-[#12aee0]'}>
+                        <NavLink to='/' className={({isActive})=> isActive ? 'text-[#12aee0]' : ''}>
                             Home
                         </NavLink>
                     </li>

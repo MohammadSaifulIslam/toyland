@@ -39,7 +39,7 @@ const Banner = () => {
                     <div className='h-[calc(100vh-90px)] w-full relative '>
                         <img src={banner1} alt="" />
                         <div className='absolute h-full w-full top-0 right-0 bg-black bg-opacity-50 text-white flex justify-center items-center text-center'>
-                            <div className='md:w-2/3'>
+                            <div className='md:w-2/3 px-5'>
                                 <h2 className='text-5xl font-bold mb-5'>
                                     Ignite Kid's Imagination
                                 </h2>
@@ -57,7 +57,7 @@ const Banner = () => {
                     <div className='h-[calc(100vh-90px)] w-full relative'>
                         <img src={banner2} alt="" />
                         <div className='absolute h-full w-full top-0 right-0 bg-black bg-opacity-50 text-white flex justify-center items-center text-center'>
-                            <div className='md:w-2/3'>
+                            <div className='md:w-2/3 px-5'>
                                 <h2 className='text-5xl font-bold mb-5'>
                                 Discover the Joy of Learning
                                 </h2>
@@ -75,7 +75,7 @@ const Banner = () => {
                     <div className='h-[calc(100vh-90px)] w-full relative'>
                         <img src={banner3} alt="" />
                         <div className='absolute h-full w-full top-0 right-0 bg-black bg-opacity-50 text-white flex justify-center items-center text-center'>
-                            <div className='md:w-2/3'>
+                            <div className='md:w-2/3 px-5'>
                                 <h2 className='text-5xl font-bold mb-5'>
                                 Play, Laugh, and Create Memories
                                 </h2>
