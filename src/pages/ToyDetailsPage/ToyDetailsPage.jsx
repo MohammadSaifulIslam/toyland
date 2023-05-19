@@ -1,5 +1,8 @@
+import { StarIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from "react";
+import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
+
 
 const ToyDetailsPage = () => {
     const [toyDetails, setToyDetails] = useState({});
@@ -30,11 +33,22 @@ const ToyDetailsPage = () => {
                         <p className="text-lg font-medium">Seller Email: {sellerEmail}</p>
                         <p className="text-lg font-medium">Quantity: {availableQuantity}</p>
                         <p className="text-lg font-medium">Price: <span className="text-[#12aee0]">${price}</span></p>
-                        <p className="text-lg font-medium">Rating: {rating}</p>
+                        <p className="text-lg font-medium flex items-center gap-2"><span>Rating: </span>
+                        <Rating
+                        className='mt-2'
+                            placeholderRating={rating}
+                            emptySymbol={<StarIcon className='h-6 w-6' />}
+                            placeholderSymbol={<StarIcon className='h-6 w-6 text-warning' />}
+                            fullSymbol={<StarIcon className='h-6 w-6 text-warning' />}
+                            readonly
+                        />
+                        </p>
+
+
                         <p className="mt-5"><span className="text-lg font-semibold  ">Toy description:</span> {description}</p>
-                        <div className="justify-end">
+                        <div className="justify-end md:flex gap-5">
                             <button className="my-btn mt-5">Add to Cart</button>
-                            <Link to='/'><button className="my-btn mt-5 ml-5">Home to Home</button></Link>
+                            <Link to='/'><button className="my-btn mt-5">Home to Home</button></Link>
                         </div>
                     </div>
                 </div>
