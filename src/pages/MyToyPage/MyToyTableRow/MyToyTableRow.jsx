@@ -1,6 +1,8 @@
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-const MyToyTableRow = ({ toy, index }) => {
-    const { name, pictureURL, availableQuantity, price } = toy;
+const MyToyTableRow = ({ toy, index,handleDeleteToy }) => {
+    const {_id, name, pictureURL, availableQuantity, price } = toy;
+
+
     return (
         <tr>
             <th>
@@ -24,7 +26,7 @@ const MyToyTableRow = ({ toy, index }) => {
                 <FaEdit className='text-xl cursor-pointer text-[#12aee0]'/>
             </td>
             <td>
-                <FaTrashAlt  className='text-xl cursor-pointer text-red-500'/>
+                <FaTrashAlt onClick={()=>handleDeleteToy(_id)} className='text-xl cursor-pointer text-red-500'/>
             </td>
         </tr>
     );
