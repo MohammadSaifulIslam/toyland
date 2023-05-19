@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+    const {user} = useContext(AuthContext);
+
     return (
       <section className=" bg-black text-white py-3">
           <nav className="my-container navbar">
@@ -53,7 +57,14 @@ const Navbar = () => {
                             Blogs
                         </NavLink>
                     </li>
-
+                    <li>
+                        <NavLink to='/login' className={({isActive})=> isActive ? 'text-[#12aee0]': ''}>
+                            Login
+                        </NavLink>
+                    </li>
+                    <li>
+                        {user}
+                    </li>
 
                 </ul>
             </div>

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Login from "../Others/Login/Login";
 import Main from "../layouts/Main";
 import AddToyPageHome from "../pages/AddToyPage/AddToyPageHome";
 import AllToyPageHome from "../pages/AllToyPage/AllToyPageHome";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         {
           path: '/toy/:id',
           element:<ToyDetailsPage/>
+        },
+        {
+          path: '/login',
+          element:<Login/>
         },
       ]
     },
