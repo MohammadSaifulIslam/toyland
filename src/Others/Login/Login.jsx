@@ -1,13 +1,14 @@
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 
 const Login = () => {
     const {loginUser,loginWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [showPass, setShowPass] = useState(false);
-
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         setError(null)
@@ -20,7 +21,13 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'You Successfully Logged in'
+                  })
                 form.reset()
+                navigate('/')
             })
             .catch(error => {
                 setError(error.message)

@@ -1,10 +1,11 @@
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser,updateUser} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
@@ -27,12 +28,40 @@ const Register = () => {
         }
         console.log(user)
 
+        // password validation
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('password must have a uppercase')
+            return
+        } else if (!/(?=.*[a-z])/.test(password)) {
+            setError('password must have a lowercase')
+            return
+        } else if (!/(?=.*\d)/.test(password)) {
+            setError('password must have a number')
+            return
+        } else if (!/(?=.*[-\!\@\#\$\.\%\&\*])/.test(password)) {
+            setError('password must have a special character')
+            return
+        }
+        else if (password.length < 6) {
+            setError('password must be at least 6 characters')
+            return
+        }
+
         createUser(email, password)
         .then(result => {
             const createdUser = result.user;
             console.log(createdUser)
-
-            // form.reset()
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'Your Account Successfully Created'
+              })
+              // user name and photo update
+              updateUser(name, photo)
+              .then(()=>{})
+              .catch((error)=> console.log("an error occuered", error))
+            form.reset()
             navigate('/')
         })
         .catch(error=>
