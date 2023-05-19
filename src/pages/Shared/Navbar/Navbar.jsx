@@ -7,7 +7,6 @@ import './Navbar.css';
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-
     const handleLogout = () => {
         logOut()
             .then(() => { })
