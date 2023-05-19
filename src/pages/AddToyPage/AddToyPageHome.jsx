@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 
 const AddToyPageHome = () => {
+  const {user} = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = data => {
@@ -44,11 +47,9 @@ const AddToyPageHome = () => {
             {/* register your input into the hook by invoking the "register" function */}
             <input placeholder="Toy name" {...register("name", { required: true })} className='my-input' required />
 
-
-
             <div className="flex gap-5 mt-5">
-              <input {...register("sellerName", { required: true })} className='my-input' placeholder="Seller name" required type="text" />
-              <input {...register("sellerEmail", { required: true })} className='my-input' placeholder="Seller email" type="email" required />
+              <input {...register("sellerName", { required: true })} className='my-input' defaultValue={user.displayName} placeholder="Seller name" required type="text" />
+              <input {...register("sellerEmail", { required: true })} className='my-input' defaultValue={user.email} placeholder="Seller email" type="email" required />
             </div>
             <div className="grid grid-cols-2 gap-5 mt-5">
               <input {...register("availableQuantity", { required: true })} className='my-input' type="number" required placeholder="Available Quantity" />

@@ -38,7 +38,15 @@ const Login = () => {
 
     const handleGoogleLogin =()=>{
         loginWithGoogle()
-        .then(result => console.log(result.user))
+        .then(result => {
+            console.log(result.user)
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'You Successfully Logged in'
+              })
+            navigate('/')}
+            )
         .catch(error=> console.log(error))
     }
     return (
