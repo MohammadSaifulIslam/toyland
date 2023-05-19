@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 
 const AddToyPageHome = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = data => {

@@ -1,11 +1,15 @@
 import { useContext, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import MyToyTableRow from "./MyToyTableRow/MyToyTableRow";
 
 const MyToyPageHome = () => {
     const [myToysData, setMyToysData] = useState([])
+    const [toyId, setToyId] = useState(null);
+
     const { user } = useContext(AuthContext);
+    const { register, handleSubmit, reset } = useForm();
 
 
     // toy delete function
@@ -56,6 +60,31 @@ const MyToyPageHome = () => {
         })
     }
 
+    // toy details update function
+    const onSubmit = data => {
+        console.log({ data, toyId })
+        fetch(`http://localhost:5000/update-toy/${toyId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Your Toy Details Successfully Updated'
+                    })
+                    reset()
+                }
+            })
+
+    };
+
     useEffect(() => {
         fetch(`http://localhost:5000/my-toy?email=${user?.email}`)
             .then(res => res.json())
@@ -91,6 +120,7 @@ const MyToyPageHome = () => {
                             myToysData.map((toy, index) => <MyToyTableRow
                                 key={toy._id}
                                 toy={toy}
+                                setToyId={setToyId}
                                 index={index}
                                 handleDeleteToy={handleDeleteToy}
                             ></MyToyTableRow>)
@@ -99,7 +129,28 @@ const MyToyPageHome = () => {
                     </tbody>
                 </table>
             </div>
-        </section>
+
+            {/* modal for update toy details */}
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+
+                    <form className="border-2 border-[#12aee0] bg-white rounded-xl p-8" onSubmit={handleSubmit(onSubmit)}>
+                        {/* register your input into the hook by invoking the "register" function */}
+                        <h4 className="text-xl text-center font-bold">Update toy details</h4>
+                        <div className="grid grid-cols-2 gap-5 mt-8">
+                            <input {...register("availableQuantity", { required: true })} className='my-input' type="number" required placeholder="Available Quantity" />
+                            <input {...register("price", { required: true })} className='my-input' placeholder="Price" type="number" required />
+                        </div>
+                        <textarea {...register("description", { required: true })}
+                            className='mt-5 my-input' placeholder="Toy Description"></textarea>
+                        <button type="submit" className="my-btn w-full mt-4">Update</button>
+                    </form>
+
+                </div>
+            </div>
+        </section >
     );
 };
 
