@@ -1,11 +1,31 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 
 const AddToyPageHome = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = data => {
     console.log(data)
+    fetch('http://localhost:5000/add-toy', {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.acknowledged) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Your toy successfully added'
+          })
+          reset()
+        }
+      })
 
   };
 
@@ -35,7 +55,7 @@ const AddToyPageHome = () => {
               <input {...register("price", { required: true })} className='my-input' placeholder="Price" type="number" required />
             </div>
             <div className="grid grid-cols-2 gap-5 mt-5">
-              <input {...register("rating", { required: true })} className='my-input' placeholder="Rating" type="number" required />
+              <input {...register("rating", { required: true })} className='my-input' placeholder="Rating" type="text" required />
 
               <select {...register("subcategory")} required className='my-input'>
                 <option defaultValue={'Select Category'}>Select Sub Category</option>

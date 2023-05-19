@@ -46,7 +46,7 @@ const ToyDetailsPage = () => {
 
 
                         <p className="mt-5"><span className="text-lg font-semibold  ">Toy description:</span> {description}</p>
-                        <div className="justify-end md:flex gap-5">
+                        <div className=" md:flex gap-5">
                             <button className="my-btn mt-5">Add to Cart</button>
                             <Link to='/'><button className="my-btn mt-5">Home to Home</button></Link>
                         </div>
