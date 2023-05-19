@@ -10,7 +10,7 @@ const AddToyPageHome = () => {
 
   const onSubmit = data => {
     console.log(data)
-    fetch('http://localhost:5000/add-toy', {
+    fetch('https://toyland-server.vercel.app/add-toy', {
       method: "POST",
       headers: {
         'content-type': 'application/json'

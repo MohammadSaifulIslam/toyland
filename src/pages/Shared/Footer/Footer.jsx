@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-black text-neutral-content">
+        <section className="bg-black text-neutral-content">
+            <footer className="my-container footer p-10">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-        </div>
+        </section>
     );
 };
 

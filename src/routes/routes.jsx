@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../Others/Login/Login";
 import Register from "../Others/Register/Register";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import Main from "../layouts/Main";
 import AddToyPageHome from "../pages/AddToyPage/AddToyPageHome";
 import AllToyPageHome from "../pages/AllToyPage/AllToyPageHome";
@@ -24,11 +25,11 @@ const router = createBrowserRouter([
         },
         {
           path: '/my-toy',
-          element:<MyToyPageHome/>
+          element:<PrivateRoutes><MyToyPageHome/></PrivateRoutes>
         },
         {
           path: '/add-toy',
-          element:<AddToyPageHome/>
+          element:<PrivateRoutes><AddToyPageHome/></PrivateRoutes>
         },
         {
           path: '/blog',
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/toy/:id',
-          element:<ToyDetailsPage/>
+          element:<PrivateRoutes><ToyDetailsPage/></PrivateRoutes>
         },
         {
           path: '/login',

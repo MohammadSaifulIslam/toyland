@@ -1,22 +1,34 @@
 import { useEffect, useState } from "react";
+import LoadingSpinner from "../../Others/LoadingSpinner/LoadingSpinner";
 import TableRow from "./TableRow/TableRow";
 
 const AllToyPageHome = () => {
     const [toys, setToys] = useState([]);
     const [seacrhText, setSeacrhText] = useState('');
+    const [isLoading, setIsLoading] =useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/all-toys`)
+        fetch(`https://toyland-server.vercel.app/all-toys`)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data =>{
+                setIsLoading(false)
+                setToys(data)
+            })
     }, [])
 
     const handleSearchByToyName = () => {
         console.log(seacrhText);
-        fetch(`http://localhost:5000/toysByName/${seacrhText}`)
+        fetch(`https://toyland-server.vercel.app/toysByName/${seacrhText}`)
             .then(res => res.json())
-            .then(data => setToys(data))
+            .then(data => {
+                setToys(data)
+                setIsLoading(false)
+            })
             
+    }
+
+    if(isLoading){
+        return <LoadingSpinner/>
     }
 
     return (

@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import LoadingSpinner from "../../Others/LoadingSpinner/LoadingSpinner";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import MyToyTableRow from "./MyToyTableRow/MyToyTableRow";
 
 const MyToyPageHome = () => {
     const [myToysData, setMyToysData] = useState([])
     const [toyId, setToyId] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
@@ -31,7 +33,7 @@ const MyToyPageHome = () => {
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/delete-toy/${id}`, {
+                fetch(`https://toyland-server.vercel.app/delete-toy/${id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -63,7 +65,7 @@ const MyToyPageHome = () => {
     // toy details update function
     const onSubmit = data => {
         console.log({ data, toyId })
-        fetch(`http://localhost:5000/update-toy/${toyId}`, {
+        fetch(`https://toyland-server.vercel.app/update-toy/${toyId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -86,14 +88,19 @@ const MyToyPageHome = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-toy?email=${user?.email}`)
+        fetch(`https://toyland-server.vercel.app/my-toy?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyToysData(data)
+                setIsLoading(false)
             })
     }, [user])
+
+    if(isLoading){
+        return <LoadingSpinner/>
+    }
     return (
-        <section className="my-container my-20">
+        <section className="my-container my-20 min-h-[calc(100vh-250px)]">
             <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                 <h3 className="text-3xl font-bold mb-5">My Toys Collection</h3>
                 <p className="font-medium">Enchanting Moments Captured in Play. Immerse yourself in a delightful gallery showcasing the magic of playtime.</p>

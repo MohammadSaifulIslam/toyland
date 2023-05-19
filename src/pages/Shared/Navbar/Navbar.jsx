@@ -100,7 +100,7 @@ const Navbar = () => {
                         user && <button onClick={handleLogout} className='my-btn hidden lg:block'>Logout</button>
                     }
                     {user ?
-                        <div className="hover-text h-14 w-14 ml-4 cursor-pointer">
+                        <div className="hover-text h-12 w-12 ml-4 cursor-pointer">
                             <img className='w-full h-full rounded-full border-2 border-[#12aee0]' src={user?.photoURL} alt="" />
                             <span className="tooltip-text" id="left">{user?.displayName}</span>
                         </div>
