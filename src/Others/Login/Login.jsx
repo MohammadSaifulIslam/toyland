@@ -1,14 +1,42 @@
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {loginUser,loginWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [showPass, setShowPass] = useState(false);
 
+
+    const handleLogin = event => {
+        setError(null)
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        loginUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                form.reset()
+            })
+            .catch(error => {
+                setError(error.message)
+                console.log(error)
+            })
+    }
+
+
+    const handleGoogleLogin =()=>{
+        loginWithGoogle()
+        .then(result => console.log(result.user))
+        .catch(error=> console.log(error))
+    }
     return (
         <section className='my-container my-20 '>
-        <form  className='mx-5 rounded-xl shadow-xl  md:w-1/3 md:mx-auto px-5 py-10 border-2 border-[#12aee0]'>
+        <form onSubmit={handleLogin} className='mx-5 rounded-xl shadow-xl  md:w-1/3 md:mx-auto px-5 py-10 border-2 border-[#12aee0]'>
            <h4 className='text-[#12aee0] text-2xl font-bold mb-5 text-center'>Login Form</h4>
            <div className="form-control">
                <label className="label">
@@ -46,7 +74,7 @@ const Login = () => {
            {/* login with google and github */}
            <div className="divider">Or</div>
           <div className="flex justify-between gap-4 mt-2">
-          <button className='outline-btn w-full'>Google</button>
+          <button onClick={handleGoogleLogin} className='outline-btn w-full'>Google</button>
           <button className='outline-btn w-full'>Github</button>
           </div>
        </form>
