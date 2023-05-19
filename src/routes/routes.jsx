@@ -5,6 +5,7 @@ import AllToyPageHome from "../pages/AllToyPage/AllToyPageHome";
 import BlogPageHome from "../pages/BlogPage/BlogPageHome";
 import Home from "../pages/HomePage/Home/Home";
 import MyToyPageHome from "../pages/MyToyPage/MyToyPageHome";
+import ToyDetailsPage from "../pages/ToyDetailsPage/ToyDetailsPage";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         {
           path: '/blog',
           element:<BlogPageHome/>
+        },
+        {
+          path: '/toy/:id',
+          element:<ToyDetailsPage/>
         },
       ]
     },

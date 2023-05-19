@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 const ToyCard = ({ toy }) => {
-    const { pictureURL, name, price, rating } = toy;
+    const {_id, pictureURL, name, price, rating } = toy;
     return (
         <div className="card card-compact bg-base-100 border-2 border-[#12aee0]">
             <figure><img src={pictureURL} alt="Shoes" className="w-full h-80 object-contain" /></figure>
@@ -9,7 +10,7 @@ const ToyCard = ({ toy }) => {
                 <p className="text-lg font-semibold">Price: <span className="text-[#12aee0]">${price}</span></p>
                 <p>Rating: {rating}</p>
                 <div className="card-actions">
-                    <button className="my-btn">View Details</button>
+                   <Link to={`/toy/${_id}`}> <button className="my-btn">View Details</button></Link>
                 </div>
             </div>
         </div>
