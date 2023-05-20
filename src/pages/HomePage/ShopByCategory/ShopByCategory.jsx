@@ -8,18 +8,44 @@ const ShopByCategory = () => {
     const [currentTab, setCurrentTab] = useState('Stuffed Animals');
     const [toys, setToys] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    // pagination state 
+    const [currentPage, setCurrentPage] = useState(1);
+    // subcategory toys length
+    const [subCategoryToysLength, setSubCategoryToysLength] = useState([]);
 
-    console.log(currentTab)
+
+    // total data length for pagination
+    const itemsPerPage = 4;
+    const totalToysBySubCategory = subCategoryToysLength;
+
+    // pagination
+    const totalPage = Math.ceil(totalToysBySubCategory / itemsPerPage);
+
+    const pageNumbers = [...Array(totalPage).keys()]
+    console.log({ pageNumbers, subCategoryToysLength })
+
+
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://toyland-server.vercel.app/toys-by-subCategory/${currentTab}`)
+        fetch(`http://localhost:5000/toys-by-subCategory/${currentTab}`)
+            .then(res => res.json())
+            .then(data => {
+                setCurrentPage(1)
+                setToys(data.slice(0, 4))
+                setSubCategoryToysLength(data.length)
+                setIsLoading(false)
+            })
+    }, [currentTab])
+
+    useEffect(() => {
+        setIsLoading(true)
+        fetch(`http://localhost:5000/pagination-by-subCategory/${currentTab}/${currentPage}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)
                 setIsLoading(false)
             })
-    }, [currentTab])
-
+    }, [currentPage])
 
 
 
@@ -41,15 +67,31 @@ const ShopByCategory = () => {
             </div>
             {
                 isLoading ? <LoadingSpinner></LoadingSpinner>
-                    : <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        {
-                            toys.map(toy => <ToyCard
-                                key={toy._id}
-                                toy={toy}
-                            ></ToyCard>)
-                        }
-                    </div>
+                    : <>
+                        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
+                            {
+                                toys.map(toy => <ToyCard
+                                    key={toy._id}
+                                    toy={toy}
+                                ></ToyCard>)
+                            }
+                        </div>
+                        {/* pagination */}
+                        <div className="text-center text-lg font-medium my-10 space-x-5">
+                            {
+                                subCategoryToysLength > 4 &&
+                                pageNumbers.map(number => <button
+                                    key={number}
+                                    onClick={() => setCurrentPage(number + 1)}
+                                    className={`border border-[#12aee0] h-8 w-8 rounded-full duration-300 ${currentPage === number + 1 && 'bg-[#12aee0] h-8 w-8 rounded-full text-white'}`}>
+                                    {number + 1}
+                                </button>)
+                            }
+
+                        </div>
+                    </>
             }
+
         </section>
     );
 };

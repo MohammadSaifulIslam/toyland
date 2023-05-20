@@ -22,7 +22,7 @@ const ToyDetailsPage = () => {
 
     const { pictureURL, sellerName, name, sellerEmail, subcategory, price, rating, availableQuantity, description } = toyDetails;
 
-    if(!isLoading){
+    if(isLoading){
         return <LoadingSpinner/>
     }
     return (

@@ -35,7 +35,7 @@ const AddToyPageHome = () => {
   const subCategory = ['Stuffed Animals', 'Wildlife', 'Sea Creatures', 'Woodland Animals', 'Marsupials', 'Birds'];
 
   return (
-    <div className="py-20">
+    <section className="py-20 min-h-screen">
       <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
         <h3 className="text-3xl font-bold mb-5">Add a Toy</h3>
         <p className="font-medium">Calling all toy enthusiasts! You can showcase and share your own delightful toy creations or unique finds. Whether you're a talented toy maker or have stumbled upon a hidden gem</p>
@@ -81,7 +81,7 @@ const AddToyPageHome = () => {
           <img src="https://img.freepik.com/free-vector/valentine-s-day-teddy-bear-concept-illustration_114360-4717.jpg?size=626&ext=jpg&ga=GA1.1.562300066.1684249269&semt=sph" alt="" className="object-contain w-full" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
