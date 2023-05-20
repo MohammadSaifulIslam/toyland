@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import ClientReview from "../ClientReview/ClientReview";
 import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 
@@ -8,6 +9,7 @@ const Home = () => {
             <Banner/>
             <Gallery/>
             <ShopByCategory/>
+            <ClientReview/>
         </div>
     );
 };
