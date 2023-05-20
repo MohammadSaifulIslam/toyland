@@ -33,3 +33,7 @@ button {
 .outline-btn {
   @apply uppercase text-[#12aee0] border border-[#12aee0] font-semibold   rounded-3xl px-7 py-3 cursor-pointer duration-300 hover:bg-[#12aee0] hover:text-white  active:scale-110;
 }
+
+.rhombhas-shape {
+  clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
+}
