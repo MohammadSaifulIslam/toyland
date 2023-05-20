@@ -6,6 +6,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import MyToyTableRow from "./MyToyTableRow/MyToyTableRow";
 
 const MyToyPageHome = () => {
+    const [sortingText, setSortingText] = useState('')
     const [myToysData, setMyToysData] = useState([])
     const [toyId, setToyId] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +14,7 @@ const MyToyPageHome = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
 
-
+    console.log(sortingText)
     // toy delete function
     const handleDeleteToy = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -87,17 +88,19 @@ const MyToyPageHome = () => {
 
     };
 
+    // sorting by price
+
     useEffect(() => {
-        fetch(`https://toyland-server.vercel.app/my-toy?email=${user?.email}`)
+        fetch(`http://localhost:5000/my-toy?email=${user?.email}&&text=${sortingText}`)
             .then(res => res.json())
             .then(data => {
                 setMyToysData(data)
                 setIsLoading(false)
             })
-    }, [user])
+    }, [sortingText])
 
-    if(isLoading){
-        return <LoadingSpinner/>
+    if (isLoading) {
+        return <LoadingSpinner />
     }
     return (
         <section className="my-container my-20 min-h-[calc(100vh-250px)]">
@@ -105,7 +108,13 @@ const MyToyPageHome = () => {
                 <h3 className="text-3xl font-bold mb-5">My Toys Collection</h3>
                 <p className="font-medium">Enchanting Moments Captured in Play. Immerse yourself in a delightful gallery showcasing the magic of playtime.</p>
             </div>
-            <p>My toy: {myToysData.length}</p>
+            <div className="w-full text-end">
+                <select onChange={(e) => setSortingText(e.target.value)} placeholder="Sort by price" className="px-5 py-2 rounded-3xl border border-[#12aee0] font-semibold focus:outline-[#12aee0] mb-5 mr-auto">
+                    <option >Default</option>
+                    <option value='low'>Lowest Price</option>
+                    <option value="high">Highest Price</option>
+                </select>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

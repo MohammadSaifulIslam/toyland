@@ -69,7 +69,7 @@ const ClientReview = () => {
                             key={index}
                         >
                             <div className="p-5 m-5 border-2 border-[#12aee0] rounded-lg">
-                                <figure className="h-20 w-20 rounded-full mx-auto mb-5">
+                                <figure className="h-20 w-20 border-2 border-[#12aee0] rounded-full mx-auto mb-5">
                                     <img src={review.customerImage} className="w-full h-full object-contai rounded-full" alt="" />
                                 </figure>
                                 <h5 className="text-xl font-semibold text-[#12aee0]">{review.name}</h5>
