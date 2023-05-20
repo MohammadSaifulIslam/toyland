@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../../Others/LoadingSpinner/LoadingSpinner";
+import websiteTitle from "../../Others/WebsiteTitle/WebsiteTitle";
 import TableRow from "./TableRow/TableRow";
 
 const AllToyPageHome = () => {
     const [toys, setToys] = useState([]);
     const [seacrhText, setSeacrhText] = useState('');
     const [isLoading, setIsLoading] =useState(true);
+
+    websiteTitle('Toy Land | All Toys')
 
     useEffect(() => {
         fetch(`https://toyland-server.vercel.app/all-toys`)

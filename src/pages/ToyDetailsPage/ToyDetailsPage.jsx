@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
 import LoadingSpinner from '../../Others/LoadingSpinner/LoadingSpinner';
+import websiteTitle from '../../Others/WebsiteTitle/WebsiteTitle';
 
 
 const ToyDetailsPage = () => {
@@ -10,7 +11,8 @@ const ToyDetailsPage = () => {
     const [isLoading, setIsLoading] = useState(true);
     const { id } = useParams();
 
-    console.log(id)
+    websiteTitle('Toy Land | Toy Details')
+    
     useEffect(() => {
         fetch(`https://toyland-server.vercel.app/toy/${id}`)
             .then(res => res.json())

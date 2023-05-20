@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import websiteTitle from "../../Others/WebsiteTitle/WebsiteTitle";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 
 const AddToyPageHome = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
+
+  websiteTitle('Toy Land | Add A Toy')
 
   const onSubmit = data => {
     console.log(data)

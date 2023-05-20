@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import LoadingSpinner from "../../Others/LoadingSpinner/LoadingSpinner";
+import websiteTitle from "../../Others/WebsiteTitle/WebsiteTitle";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import MyToyTableRow from "./MyToyTableRow/MyToyTableRow";
 
@@ -14,7 +15,9 @@ const MyToyPageHome = () => {
     const { user } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
 
-    console.log(sortingText)
+
+    websiteTitle('Toy Land | My Toys')
+
     // toy delete function
     const handleDeleteToy = (id) => {
         const swalWithBootstrapButtons = Swal.mixin({

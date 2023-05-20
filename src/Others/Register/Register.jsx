@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import websiteTitle from "../WebsiteTitle/WebsiteTitle";
 
 const Register = () => {
     const {createUser,updateUser} = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Register = () => {
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
 
-
+    websiteTitle('Toy Land | Register')
 
     const handleRegister =event =>{
         setError(null)

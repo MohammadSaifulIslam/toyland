@@ -3,6 +3,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
+import websiteTitle from '../WebsiteTitle/WebsiteTitle';
 
 const Login = () => {
     const {loginUser,loginWithGoogle} = useContext(AuthContext);
@@ -10,6 +11,8 @@ const Login = () => {
     const [showPass, setShowPass] = useState(false);
     const navigate = useNavigate();
 
+    websiteTitle('Toy Land | Login')
+    
     const handleLogin = event => {
         setError(null)
         event.preventDefault();
