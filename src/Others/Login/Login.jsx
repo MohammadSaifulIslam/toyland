@@ -1,6 +1,6 @@
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 import { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import websiteTitle from '../WebsiteTitle/WebsiteTitle';
@@ -9,8 +9,10 @@ const Login = () => {
     const {loginUser,loginWithGoogle} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [showPass, setShowPass] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
-
+    const from = location?.state?.from?.pathname || '/'
+    console.log(from);
     websiteTitle('Toy Land | Login')
     
     const handleLogin = event => {
@@ -30,7 +32,7 @@ const Login = () => {
                     text: 'You Successfully Logged in'
                   })
                 form.reset()
-                navigate('/')
+                navigate(from)
             })
             .catch(error => {
                 setError(error.message)
@@ -48,7 +50,8 @@ const Login = () => {
                 title: 'Success',
                 text: 'You Successfully Logged in'
               })
-            navigate('/')}
+            navigate(from)
+        }
             )
         .catch(error=> console.log(error))
     }

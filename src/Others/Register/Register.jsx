@@ -63,7 +63,7 @@ const Register = () => {
               .then(()=>{})
               .catch((error)=> console.log("an error occuered", error))
             form.reset()
-            navigate('/')
+            navigate('/login')
         })
         .catch(error=>
             {
