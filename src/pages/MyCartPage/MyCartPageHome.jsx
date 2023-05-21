@@ -43,7 +43,7 @@ const MyCartPageHome = () => {
 
     // toy data fetch from database by ids 
     useEffect(()=>{
-        fetch(`http://localhost:5000/toysById`,{
+        fetch(`https://toyland-server.vercel.app/toysById`,{
             method: "POST",
             headers:{
                 'content-type':'application/json'

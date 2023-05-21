@@ -24,7 +24,8 @@ const router = createBrowserRouter([
         },
         {
           path: '/all-toy',
-          element:<AllToyPageHome/>
+          element:<AllToyPageHome/>,
+          loader : ()=> fetch('https://toyland-server.vercel.app/totalToys')
         },
         {
           path: '/my-toy',
