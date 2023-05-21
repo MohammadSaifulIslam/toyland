@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
+import { Link } from 'react-router-dom';
 import './Banner.css';
 
 
@@ -46,8 +47,8 @@ const Banner = () => {
                                 <p className='text-lg font-medium mb-10'>
                                     Unleash a world of wonder and imagination with our captivating collection of toys. From magical dolls to thrilling playsets, our Toyland sparks creativity and transports kids to a realm of endless possibilities.
                                 </p>
-                                <div className="my-btn w-fit mx-auto">
-                                    Buy Now
+                                <div className="mx-auto">
+                                    <Link to='/all-toy' className='my-btn'>Buy Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -64,8 +65,8 @@ const Banner = () => {
                                 <p className='text-lg font-medium mb-10'>
                                 Make learning an adventure with our educational toys that entertain and educate. From interactive puzzles to STEM kits, our Toyland cultivates a love for knowledge and empowers children to explore, discover, and grow.
                                 </p>
-                                <div className="my-btn w-fit mx-auto">
-                                    Buy Now
+                                <div className="mx-auto">
+                                    <Link to='/all-toy' className='my-btn'>Buy Now</Link>
                                 </div>
                             </div>
                         </div>
@@ -82,8 +83,8 @@ const Banner = () => {
                                 <p className='text-lg font-medium mb-10'>
                                 Create unforgettable moments of joy and laughter with our enchanting toys. From cuddly companions to interactive games, our Toyland is where cherished memories are made, fostering bonds between friends and family.
                                 </p>
-                                <div className="my-btn w-fit mx-auto">
-                                    Buy Now
+                                <div className="mx-auto">
+                                    <Link to='/all-toy' className='my-btn'>Buy Now</Link>
                                 </div>
                             </div>
                         </div>
