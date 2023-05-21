@@ -8,6 +8,7 @@ import AddToyPageHome from "../pages/AddToyPage/AddToyPageHome";
 import AllToyPageHome from "../pages/AllToyPage/AllToyPageHome";
 import BlogPageHome from "../pages/BlogPage/BlogPageHome";
 import Home from "../pages/HomePage/Home/Home";
+import MyCartPageHome from "../pages/MyCartPage/MyCartPageHome";
 import MyToyPageHome from "../pages/MyToyPage/MyToyPageHome";
 import ToyDetailsPage from "../pages/ToyDetailsPage/ToyDetailsPage";
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
           path: '/toy/:id',
           element:<PrivateRoutes><ToyDetailsPage/></PrivateRoutes>
+        },
+        {
+          path: '/my-cart',
+          element:<PrivateRoutes><MyCartPageHome/></PrivateRoutes>
         },
         {
           path: '/login',

@@ -1,10 +1,12 @@
 import { StarIcon } from '@heroicons/react/24/solid';
 import { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { FaCartPlus } from 'react-icons/fa';
 import Rating from "react-rating";
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../Providers/AuthProvider/AuthProvider';
+import { addToDb } from '../../../../utility/fakeDb';
 
 const ToyCard = ({ toy }) => {
     const { user } = useContext(AuthContext);
@@ -24,6 +26,11 @@ const ToyCard = ({ toy }) => {
           navigate(`/toy/${_id}`)
         }
     }
+
+    const handleAddToCart = (id)=>{
+        addToDb(id)
+        toast.success('Toy added to cart')
+    }
     return (
         <div className="card card-compact bg-base-100 border-2 border-[#12aee0]">
             <figure className='overflow-hidden'><img src={pictureURL} alt="Shoes" className="w-full h-72 object-contain duration-700 hover:scale-110 " /></figure>
@@ -41,7 +48,7 @@ const ToyCard = ({ toy }) => {
                     />
                 </p>
                 <button onClick={handleViewDetails} className="w-full my-btn">View Details </button>
-                <button className='outline-btn w-full mt-1 flex gap-2 items-center justify-center'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
+                <button onClick={()=>handleAddToCart(_id)} className='outline-btn w-full mt-1 flex gap-2 items-center justify-center'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
             </div>
         </div>
     );

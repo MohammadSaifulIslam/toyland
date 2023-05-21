@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import logo from '../../../assets/logo/NicePng_teddy-bear-png_43607.png';
@@ -44,6 +45,12 @@ const Navbar = () => {
                                             Add A Toy
                                         </NavLink>
                                     </li>
+                                    <li className="relative">
+                                       <NavLink to='/my-cart' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
+                                            My Cart
+                                            <span className="absolute text-black top-0 left-70px">0</span>
+                                        </NavLink>
+                                    </li>
                                 </>
 
                             }
@@ -85,6 +92,12 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to='/add-toy' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
                                         Add A Toy
+                                    </NavLink>
+                                </li>
+                                <li className="relative flex items-center">
+                                    <NavLink to='/my-cart' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
+                                        <FaShoppingCart/>
+                                        <span className="absolute text-black -top-2 -right-3">0</span>
                                     </NavLink>
                                 </li>
                             </>
