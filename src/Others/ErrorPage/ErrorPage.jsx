@@ -7,8 +7,8 @@ const ErrorPage = () => {
     return (
         <section className='h-screen w-full bg-[#e5f9ff] relative' >
         <Lottie className="h-full" animationData={errorAnimation} loop={true} />
-          <div className='absolute bottom-20 left-1/2 -translate-x-1/2'>
-            <Link to='/' className='my-btn'>
+          <div className=''>
+            <Link to='/' className='my-btn w-fit absolute bottom-20 right-1/2 translate-x-1/2 text-center'>
               Back to homepage
             </Link>
           </div>

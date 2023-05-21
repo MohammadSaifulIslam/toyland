@@ -80,7 +80,7 @@ const MyCartPageHome = () => {
                     </div>
                     <div className='flex flex-col md:flex-row justify-end gap-5 mt-5'>
                         {cartToysData.length > 0 ?
-                            <button onClick={handleClearCart} className='outline-btn'>Clear Cart</button>
+                            <button onClick={handleClearCart} className='outline-btn w-fit ml-auto md:ml-0'>Clear Cart</button>
                             : <Link to='/all-toy' className="ml-auto">
                                 <button className='outline-btn'>Back To Shop</button>
                             </Link>

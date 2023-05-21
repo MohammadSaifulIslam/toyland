@@ -69,7 +69,7 @@ const ToyDetailsPage = () => {
                             <div className="flex flex-col md:flex-row gap-4 items-center mt-5">
                                 <Link to='/'><button className="my-btn  w-full md:w-fit">Back to Home</button></Link>
 
-                                <button onClick={()=>handleAddToCart(_id)} className='outline-btn w-full h-fit md:w-fit flex gap-2'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
+                                <button onClick={()=>handleAddToCart(_id)} className='outline-btn md:w-fit flex gap-2'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
                             </div>
                         </div>
                     </div>

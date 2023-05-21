@@ -42,7 +42,7 @@ const ClientReview = () => {
     ];
 
     return (
-        <section className=" py-20 bg-[#e5f9ff] curve">
+        <section className="py-32 bg-[#e5f9ff] curve">
             <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                 <h3 className="text-3xl font-bold mb-5">Our Customer's Review</h3>
                 <p className="font-medium">Explore the heartwarming experiences and feedback shared by our valued customers in the 'Customer Review' section.</p>
