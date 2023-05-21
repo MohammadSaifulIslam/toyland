@@ -45,10 +45,12 @@ const Navbar = () => {
                                             Add A Toy
                                         </NavLink>
                                     </li>
-                                    <li className="relative">
-                                       <NavLink to='/my-cart' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
-                                            My Cart
-                                            <span className="absolute text-black top-0 left-70px">0</span>
+                                    <li>
+                                        <NavLink to='/my-cart' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
+                                            <span className="flex items-center gap-2">
+                                                My Cart
+                                                <FaShoppingCart className="h-4 w-4" />
+                                            </span>
                                         </NavLink>
                                     </li>
                                 </>
@@ -94,10 +96,12 @@ const Navbar = () => {
                                         Add A Toy
                                     </NavLink>
                                 </li>
-                                <li className="relative flex items-center">
+                                <li>
                                     <NavLink to='/my-cart' className={({ isActive }) => isActive ? 'text-[#12aee0]' : ''}>
-                                        <FaShoppingCart/>
-                                        <span className="absolute text-black -top-2 -right-3">0</span>
+                                        <span className="flex items-center gap-2">
+                                            My Cart
+                                            <FaShoppingCart className="h-5 w-5" />
+                                        </span>
                                     </NavLink>
                                 </li>
                             </>

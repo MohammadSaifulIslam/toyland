@@ -1,5 +1,6 @@
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 import { useContext, useState } from 'react';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
@@ -109,8 +110,12 @@ const Login = () => {
            {/* login with google and github */}
            <div className="divider">Or</div>
           <div className="flex justify-between gap-4 mt-2">
-          <button onClick={handleGoogleLogin} className='outline-btn w-full'>Google</button>
-          <button onClick={handleGithubLogin} className='outline-btn w-full'>Github</button>
+          <span onClick={handleGoogleLogin} className='outline-btn w-full flex items-center justify-center gap-2 '> <FaGoogle></FaGoogle>Google
+         
+          </span>
+          <span onClick={handleGithubLogin} className='outline-btn w-full flex items-center justify-center gap-2 '>
+            <FaGithub/>
+            Github</span>
           </div>
        </form>
       </section>

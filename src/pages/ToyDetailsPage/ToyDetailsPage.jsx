@@ -1,9 +1,12 @@
 import { StarIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from "react";
+import { toast } from 'react-hot-toast';
+import { FaCartPlus } from 'react-icons/fa';
 import Rating from "react-rating";
 import { Link, useParams } from "react-router-dom";
 import LoadingSpinner from '../../Others/LoadingSpinner/LoadingSpinner';
 import websiteTitle from '../../Others/WebsiteTitle/WebsiteTitle';
+import { addToDb } from '../../utility/fakeDb';
 
 
 const ToyDetailsPage = () => {
@@ -22,7 +25,13 @@ const ToyDetailsPage = () => {
             })
     }, [id])
 
-    const { pictureURL, sellerName, name, sellerEmail, subcategory, price, rating, availableQuantity, description } = toyDetails;
+    const {_id, pictureURL, sellerName, name, sellerEmail, subcategory, price, rating, availableQuantity, description } = toyDetails;
+
+
+    const handleAddToCart = (id)=>{
+            addToDb(id)
+            toast.success('Toy added to cart')
+    }
 
     if(isLoading){
         return <LoadingSpinner/>
@@ -57,9 +66,10 @@ const ToyDetailsPage = () => {
 
 
                             <p className="mt-5"><span className="text-lg font-semibold  ">Toy description:</span> {description}</p>
-                            <div className=" md:flex gap-5">
-                                <button className="my-btn mt-5">Add to Cart</button>
-                                <Link to='/'><button className="my-btn mt-5">Home to Home</button></Link>
+                            <div className="flex flex-col md:flex-row gap-4 items-center mt-5">
+                                <Link to='/'><button className="my-btn  w-full md:w-fit">Back to Home</button></Link>
+
+                                <button onClick={()=>handleAddToCart(_id)} className='outline-btn w-full h-fit md:w-fit flex gap-2'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
                             </div>
                         </div>
                     </div>

@@ -22,7 +22,6 @@ const ShopByCategory = () => {
     const totalPage = Math.ceil(totalToysBySubCategory / itemsPerPage);
 
     const pageNumbers = [...Array(totalPage).keys()]
-    console.log({ pageNumbers, subCategoryToysLength })
 
 
     useEffect(() => {

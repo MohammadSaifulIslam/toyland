@@ -28,8 +28,18 @@ const ToyCard = ({ toy }) => {
     }
 
     const handleAddToCart = (id)=>{
-        addToDb(id)
-        toast.success('Toy added to cart')
+        if(user){
+            addToDb(id)
+            toast.success('Toy added to cart')
+        }
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: "Haven't permision",
+                text: 'You have to log in first.'
+            })
+            navigate(`/login`)
+        }
     }
     return (
         <div className="card card-compact bg-base-100 border-2 border-[#12aee0]">
