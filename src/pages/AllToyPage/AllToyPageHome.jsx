@@ -35,7 +35,8 @@ const AllToyPageHome = () => {
     }
 
     return (
-        <section className="my-container my-20">
+      <section className="bg-[#e5f9ff] py-20">
+          <div className="my-container">
             <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                 <h3 className="text-3xl font-bold mb-5">Discover A Diverse of Toys</h3>
                 <p className="font-medium">Welcome to our 'All Toys' section, where imagination knows no bounds. Delve into a captivating world filled with a vast assortment of toys to suit every child's dreams and desires.</p>
@@ -79,7 +80,8 @@ const AllToyPageHome = () => {
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
+      </section>
     );
 };
 

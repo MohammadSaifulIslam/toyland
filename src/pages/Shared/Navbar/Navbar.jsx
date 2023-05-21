@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import logo from '../../../assets/logo/NicePng_teddy-bear-png_43607.png';
+import navbarImage from '../../../assets/navbar/header-after.png';
 import './Navbar.css';
-
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const Navbar = () => {
             .catch(error => console.log(error))
     }
     return (
-        <section className=" bg-black text-white py-3">
+        <section className=" bg-white py-3 relative">
             <nav className="my-container navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -60,7 +60,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <img src={logo} alt="logo"  className="w-10 h-10 object-contain"/>
+                    <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
                     <Link to='/' className="text-2xl font-bold">Toy<span className="text-blue-500">Land</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -112,6 +112,9 @@ const Navbar = () => {
 
                 </div>
             </nav>
+            <div className='absolute w-full h-5 -bottom-[16px] left-0 z-50 '>
+                <img src={navbarImage} alt="" className="w-full h-full object-cover" />
+            </div>
         </section>
     );
 };

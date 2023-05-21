@@ -5,7 +5,7 @@ const Contact = () => {
         event.target.reset()
     }
     return (
-        <div className='my-container'>
+        <div className='my-container mt-20'>
               <div className="section-title mb-10 md:mb-0 text-center lg:w-2/3 mx-auto">
                     <h3 className="text-3xl font-bold mb-5">Get Touch With Us</h3>
                     <p className="font-medium">This section is designed to make it easy for customers to make reservations, ask questions, or provide feedback about their dining experience.</p>

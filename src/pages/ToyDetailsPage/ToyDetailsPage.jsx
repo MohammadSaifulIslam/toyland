@@ -28,7 +28,7 @@ const ToyDetailsPage = () => {
         return <LoadingSpinner/>
     }
     return (
-        <section className="py-20 bg-[#f9fcff]">
+        <section className="py-20 bg-[#e5f9ff] shadow-lg">
             <div className="my-container ">
                 <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                     <h3 className="text-3xl font-bold mb-5">Toy Details</h3>

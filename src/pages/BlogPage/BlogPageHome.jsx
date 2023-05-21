@@ -3,7 +3,8 @@ import websiteTitle from "../../Others/WebsiteTitle/WebsiteTitle";
 const BlogPageHome = () => {
     websiteTitle('Toy Land | Blogs')
     return (
-        <section className="my-container my-20 min-h-screen text-lg font-medium md:w-2/3">
+       <section className=" bg-[#e5f9ff] py-20 min-h-screen text-lg font-medium">
+         <section className="my-container  md:w-2/3">
             <div className="section-title mb-10 text-center">
                 <h3 className="text-3xl font-bold mb-5">Our Blogs</h3>
                 <p className="font-medium">Dive into a world of articles written by toy experts, parenting gurus, and passionate contributors who share their expertise, tips, and experiences. </p>
@@ -68,6 +69,7 @@ const BlogPageHome = () => {
                 </p>
             </div>
         </section>
+       </section>
     );
 };
 

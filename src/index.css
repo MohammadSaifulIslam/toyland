@@ -37,3 +37,10 @@ button {
 .rhombhas-shape {
   clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
 }
+
+.bottom-curve {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+}
+.curve {
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+}

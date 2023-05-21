@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import websiteTitle from "../../Others/WebsiteTitle/WebsiteTitle";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-
+import teddyImg from '../../assets/add toy/teddy-img.png';
 
 const AddToyPageHome = () => {
   const { user } = useContext(AuthContext);
@@ -38,7 +38,7 @@ const AddToyPageHome = () => {
   const subCategory = ['Stuffed Animals', 'Wildlife', 'Sea Creatures', 'Woodland Animals', 'Marsupials', 'Birds'];
 
   return (
-    <section className="py-20 min-h-screen">
+    <section className="py-20 min-h-screen bg-[#e5f9ff]">
       <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
         <h3 className="text-3xl font-bold mb-5">Add a Toy</h3>
         <p className="font-medium">Calling all toy enthusiasts! You can showcase and share your own delightful toy creations or unique finds. Whether you're a talented toy maker or have stumbled upon a hidden gem</p>
@@ -80,8 +80,8 @@ const AddToyPageHome = () => {
             <input className="my-btn mt-5 w-full" type="submit" />
           </form>
         </div>
-        <div className="flex items-center">
-          <img src="https://img.freepik.com/free-vector/valentine-s-day-teddy-bear-concept-illustration_114360-4717.jpg?size=626&ext=jpg&ga=GA1.1.562300066.1684249269&semt=sph" alt="" className="object-contain w-full" />
+        <div className="flex items-center rounded-lg">
+          <img src={teddyImg} alt="" className="rounded-lg h-[530px] w-full object-contain " />
         </div>
       </div>
     </section>

@@ -106,7 +106,8 @@ const MyToyPageHome = () => {
         return <LoadingSpinner />
     }
     return (
-        <section className="my-container my-20 min-h-[calc(100vh-250px)]">
+     <section className="bg-[#e5f9ff] py-20">
+           <section className="my-container min-h-[calc(100vh-250px)]">
             <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                 <h3 className="text-3xl font-bold mb-5">My Toys Collection</h3>
                 <p className="font-medium">Enchanting Moments Captured in Play. Immerse yourself in a delightful gallery showcasing the magic of playtime.</p>
@@ -171,6 +172,7 @@ const MyToyPageHome = () => {
                 </div>
             </div>
         </section >
+     </section>
     );
 };
 
