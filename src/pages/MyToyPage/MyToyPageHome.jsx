@@ -94,7 +94,7 @@ const MyToyPageHome = () => {
     // sorting by price
 
     useEffect(() => {
-        fetch(`https://toyland-server.vercel.app/my-toy?email=${user?.email}&&text=${sortingText}`)
+        fetch(`http://localhost:5000/my-toy?email=${user?.email}&&text=${sortingText}`)
             .then(res => res.json())
             .then(data => {
                 setMyToysData(data)
@@ -130,6 +130,7 @@ const MyToyPageHome = () => {
                             <th>Name</th>
                             <th>Quantity</th>
                             <th>price</th>
+                            <th>Details</th>
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>

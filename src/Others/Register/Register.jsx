@@ -116,7 +116,7 @@ const Register = () => {
                 <div className="form-control mt-4">
                     <label className="flex gap-4 cursor-pointer">
                         <input type="checkbox" className="checkbox" required />
-                        <span className="">Accept <Link to='/terms' className='underline'>Terms & Conditions</Link></span>
+                        <span className="">Accept Terms & Conditions</span>
                     </label>
                 </div>
                 <button className='my-btn w-full mt-5'>Create an account</button>

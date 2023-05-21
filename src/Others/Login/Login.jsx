@@ -6,7 +6,7 @@ import { AuthContext } from '../../Providers/AuthProvider/AuthProvider';
 import websiteTitle from '../WebsiteTitle/WebsiteTitle';
 
 const Login = () => {
-    const {loginUser,loginWithGoogle} = useContext(AuthContext);
+    const {loginUser,loginWithGoogle,loginWithGithub} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [showPass, setShowPass] = useState(false);
     const location = useLocation();
@@ -43,6 +43,20 @@ const Login = () => {
 
     const handleGoogleLogin =()=>{
         loginWithGoogle()
+        .then(result => {
+            console.log(result.user)
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: 'You Successfully Logged in'
+              })
+            navigate(from)
+        }
+            )
+        .catch(error=> console.log(error))
+    }
+    const handleGithubLogin =()=>{
+        loginWithGithub()
         .then(result => {
             console.log(result.user)
             Swal.fire({
@@ -96,7 +110,7 @@ const Login = () => {
            <div className="divider">Or</div>
           <div className="flex justify-between gap-4 mt-2">
           <button onClick={handleGoogleLogin} className='outline-btn w-full'>Google</button>
-          <button className='outline-btn w-full'>Github</button>
+          <button onClick={handleGithubLogin} className='outline-btn w-full'>Github</button>
           </div>
        </form>
       </section>

@@ -1,10 +1,29 @@
 import { StarIcon } from '@heroicons/react/24/solid';
+import { useContext } from 'react';
 import { FaCartPlus } from 'react-icons/fa';
 import Rating from "react-rating";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../../../Providers/AuthProvider/AuthProvider';
 
 const ToyCard = ({ toy }) => {
+    const { user } = useContext(AuthContext);
     const { _id, pictureURL, name, price, rating } = toy;
+    const navigate = useNavigate();
+    const handleViewDetails = () => {
+        if (!user) {
+            Swal.fire({
+                icon: 'error',
+                title: "Haven't permision",
+                text: 'You have to log in first to view details'
+            })
+            navigate(`/toy/${_id}`)
+           
+        }
+        else {
+          navigate(`/toy/${_id}`)
+        }
+    }
     return (
         <div className="card card-compact bg-base-100 border-2 border-[#12aee0]">
             <figure className='overflow-hidden'><img src={pictureURL} alt="Shoes" className="w-full h-72 object-contain duration-700 hover:scale-110 " /></figure>
@@ -21,8 +40,8 @@ const ToyCard = ({ toy }) => {
                         readonly
                     />
                 </p>
-                <Link to={`/toy/${_id}`}> <button className="w-full my-btn">View Details </button></Link>
-                <button className='outline-btn w-full mt-1 flex gap-2 items-center justify-center'>Add to cart <FaCartPlus className='w-6 h-6 '/></button>
+                <button onClick={handleViewDetails} className="w-full my-btn">View Details </button>
+                <button className='outline-btn w-full mt-1 flex gap-2 items-center justify-center'>Add to cart <FaCartPlus className='w-6 h-6 ' /></button>
             </div>
         </div>
     );

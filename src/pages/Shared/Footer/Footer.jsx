@@ -4,7 +4,7 @@ import logo from '../../../assets/logo/NicePng_teddy-bear-png_43607.png';
 const Footer = () => {
     return (
         <section className='bg-black'>
-        <footer className="my-container footer mt-24 p-10 text-neutral-content">
+        <footer className="my-container footer p-10 text-neutral-content">
            <div>
                <span className="footer-title">Social</span>
                <a  href='https://www.facebook.com/khan.saiful.90857/' target='_blank' className="link link-hover">Facebook</a>
