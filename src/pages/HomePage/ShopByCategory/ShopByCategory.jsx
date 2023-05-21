@@ -52,7 +52,7 @@ const ShopByCategory = () => {
     const subCategory = ['Stuffed Animals', 'Wildlife', 'Sea Creatures', 'Woodland Animals', 'Marsupials', 'Birds'];
 
     return (
-        <section className="my-container py-20">
+        <section className="my-container mt-20">
             <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
                 <h3 className="text-3xl font-bold mb-5">Shop By Category</h3>
                 <p className="font-medium">Discover our diverse range of toys categorized to suit every childs interests and preferences.</p>

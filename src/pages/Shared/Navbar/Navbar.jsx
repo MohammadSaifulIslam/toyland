@@ -61,7 +61,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
-                    <Link to='/' className="text-2xl font-bold">Toy<span className="text-blue-500">Land</span></Link>
+                    <Link to='/' className="text-2xl font-bold">Toy<span className="text-[#12aee0]">Land</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex gap-5 font-semibold">

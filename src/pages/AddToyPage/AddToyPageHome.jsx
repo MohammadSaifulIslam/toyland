@@ -38,7 +38,7 @@ const AddToyPageHome = () => {
   const subCategory = ['Stuffed Animals', 'Wildlife', 'Sea Creatures', 'Woodland Animals', 'Marsupials', 'Birds'];
 
   return (
-    <section className="py-20 min-h-screen bg-[#e5f9ff]">
+    <section className="py-20 min-h-[calc(100vh-348px)] bg-[#e5f9ff]">
       <div className="section-title mb-10 text-center lg:w-2/3 mx-auto">
         <h3 className="text-3xl font-bold mb-5">Add a Toy</h3>
         <p className="font-medium">Calling all toy enthusiasts! You can showcase and share your own delightful toy creations or unique finds. Whether you're a talented toy maker or have stumbled upon a hidden gem</p>

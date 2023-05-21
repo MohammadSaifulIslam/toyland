@@ -8,7 +8,7 @@ import ShopByCategory from "../ShopByCategory/ShopByCategory";
 const Home = () => {
     websiteTitle('Toy Land | Home')
     return (
-        <div className="min-h-screen">
+        <div className="min-h-[calc(100vh-348px)]">
             <Banner/>
             <Gallery/>
             <ShopByCategory/>
