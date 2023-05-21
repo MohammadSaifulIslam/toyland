@@ -27,7 +27,7 @@ const ShopByCategory = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:5000/toys-by-subCategory/${currentTab}`)
+        fetch(`https://toyland-server.vercel.app/toys-by-subCategory/${currentTab}`)
             .then(res => res.json())
             .then(data => {
                 setCurrentPage(1)
@@ -39,7 +39,7 @@ const ShopByCategory = () => {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch(`http://localhost:5000/pagination-by-subCategory/${currentTab}/${currentPage}`)
+        fetch(`https://toyland-server.vercel.app/pagination-by-subCategory/${currentTab}/${currentPage}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data)

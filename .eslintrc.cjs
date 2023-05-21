@@ -15,5 +15,6 @@ module.exports = {
     'react/no-unescaped-entities':0,
     'no-useless-escape':0,
     'react-hooks/exhaustive-deps':0,
+    'react/jsx-no-target-blank':0,
   },
 }
