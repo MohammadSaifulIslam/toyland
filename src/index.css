@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav,
+a {
+  font-family: "Lato", sans-serif;
+}
+p,
+button {
+  font-family: "Montserrat", sans-serif;
+}
+.my-container {
+  @apply max-w-7xl mx-auto px-5;
+}
+.my-btn {
+  @apply uppercase text-white font-semibold  bg-[#12aee0] rounded-3xl px-7 py-3 cursor-pointer duration-300 hover:bg-[#0aa0d1] active:scale-110;
+}
+
+.tab-outline {
+  @apply uppercase font-semibold  cursor-pointer duration-500 text-center w-full h-14 md:h-20 flex items-center justify-center hover:bg-[#0aa0d1] hover:text-white;
+}
+
+.my-input {
+  @apply px-5 py-2 w-full rounded-3xl border focus:outline-[#12aee0];
+}
+.outline-btn {
+  @apply uppercase text-[#12aee0] border border-[#12aee0] font-semibold   rounded-3xl px-7 py-3 cursor-pointer duration-300 hover:bg-[#12aee0] hover:text-white  active:scale-110;
+}
+
+.bottom-curve {
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
+}
+.curve {
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+}
