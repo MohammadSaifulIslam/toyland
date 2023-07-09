@@ -20,10 +20,17 @@ const MyToyTableRow = ({ toy, index, handleDeleteToy, setToyId }) => {
                 <td>
                     {name}
                 </td>
+<<<<<<< HEAD
                 <td>
                     {availableQuantity}
                 </td>
                 <td>{price}</td>
+=======
+                <td>{price}</td>
+                <td>
+                    {availableQuantity}
+                </td>
+>>>>>>> 92d7c4a4855769df97f278881c9adc3b83de17bd
                 <td>
                  <Link to={`/toy/${_id}`}>
                  <FaEye className='text-xl cursor-pointer text-[#12aee0]'></FaEye>
